@@ -6,7 +6,7 @@ const baseUrlApi2 = `https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api`
 
 export function Heroes() {
 
-	const [heroes, setHeroes] = useState([]);
+	const [heroes, setHeroes] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
