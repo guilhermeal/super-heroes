@@ -1,0 +1,95 @@
+.hero {
+    font-family: 'Roboto';
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hero:hover {
+    cursor: pointer;
+    background-color: #F0F0F0;
+    opacity: 80%;
+}
+
+.cardHero {
+    padding-top: 0.5rem;
+}
+
+.cardHeroCover {
+    border-radius: 5%;
+    margin: auto;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    transition: background-size 0.5s ease-out;
+    -moz-transition: background-size 0.5s ease-out;
+    -ms-transition: background-size 0.5s ease-out;
+    -o-transition: background-size 0.5s ease-out;
+    -webkit-transition: background-size 0.5s ease-out;
+
+}
+
+.cardHeroCover:hover {
+    opacity: 0.5;
+    background-size: 110%;
+}
+
+.cardHeroDetailsPhoto {
+    display: fixed;
+    float: right;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.cardHeroTitle {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.cardHeroTitle p {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+
+.cardHeroDetails {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    width: 100%;
+    align-content: space-between;
+}
+
+.cardHeroDetails ul {
+    display: flex;
+    font-size: 0.8rem;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    padding-left: 0em;
+    background-color: #f2f2f2;    
+}
+.cardHeroDetails ul li {
+    padding: 3px 2px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #E8E8E8;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardHeroDetails ul li:hover {
+    background-color: #E8E8E8;
+}
+
+.cardHeroDetails ul li span {
+    flex-direction: right;
+    float: right;
+    text-align: right;
+    font-size: 0.9rem;
+}
