@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Hero } from "./components/Hero";
 import LoadingSvg from "./../assets/loading.svg";
+import { Modal } from "./components/Modal";
 
 const baseUrlApi2 = `https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api`;
 
@@ -8,6 +9,9 @@ export function Heroes() {
 
 	const [heroes, setHeroes] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
+	const [hero, setHero] = useState<any[]>([]);
+	const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(!showModal);
 
 	useEffect(() => {
     const fetchHeroes = async () => {
@@ -25,6 +29,12 @@ export function Heroes() {
     };
     fetchHeroes();
   }, []);
+
+  const handleClick = (id:number) => {
+    const filteredHero = heroes.filter(h => h.id == id).shift();
+    setHero(filteredHero);
+    toggleModal();
+  }
 
   if(loading) {
     return (
@@ -54,20 +64,35 @@ export function Heroes() {
   }
 	
 	return (
-		<div style={{
+    <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(18rem, 1fr))',
-      gap: '2rem',
-      padding: '1rem',
     }}>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(18rem, 1fr))',
+        gap: '2rem',
+        padding: '1rem',
+        opacity: `${showModal ? '20%' : '100%'}`,
+        zIndex: '10',
+      }}>
 
-    {heroes.map(hero => 
-      <Hero 
-        key={hero.id} 
-        hero={hero} 
-      />
-    )}
+        {heroes && heroes.map(hero => 
+          <Hero 
+            key={hero.id} 
+            hero={hero} 
+            onClick={(id) => handleClick(id)}
+          />
+        )}
+      </div>	
 
-		</div>	
+      {showModal && (
+        <Modal 
+          isOpen={showModal}
+          onClose={()=>toggleModal()}
+          hero={hero}
+        />
+      )}
+
+    </div>
 	)
 }

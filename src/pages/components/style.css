@@ -1,5 +1,4 @@
 .hero {
-    font-family: 'Roboto';
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
@@ -16,6 +15,8 @@
 }
 
 .cardHeroCover {
+    display: flex;
+    flex-direction:  row-reverse;
     border-radius: 5%;
     margin: auto;
     height: 30vh;
@@ -27,29 +28,27 @@
     -ms-transition: background-size 0.5s ease-out;
     -o-transition: background-size 0.5s ease-out;
     -webkit-transition: background-size 0.5s ease-out;
-
 }
 
 .cardHeroCover:hover {
-    opacity: 0.5;
+    opacity: 0.8;
     background-size: 110%;
 }
 
-.cardHeroDetailsPhoto {
-    display: fixed;
-    float: right;
+.cardHeroCoverDetails {
     padding: 0.8rem;
     margin-top: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.60);
     color: #fff;
     font-size: 0.8rem;
+    width: 3rem;
+    text-align: center;
 }
 
 .cardHeroTitle {
     font-size: 1rem;
-    font-weight: lighter;
 }
 
 .cardHeroTitle p {
@@ -58,21 +57,20 @@
     margin: 0px;
 }
 
-
 .cardHeroDetails {
     font-size: 0.8rem;
-    font-weight: lighter;
     width: 100%;
+    font-weight: ;
     align-content: space-between;
 }
 
 .cardHeroDetails ul {
     display: flex;
-    font-size: 0.8rem;
+    font-size: 1rem;
     flex-direction: column;
     margin-top: 0.5rem;
     padding-left: 0em;
-    background-color: #f2f2f2;    
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .cardHeroDetails ul li {
     padding: 3px 2px;
@@ -91,5 +89,18 @@
     flex-direction: right;
     float: right;
     text-align: right;
-    font-size: 0.9rem;
+}
+
+.cardHeroCoverGender {
+    padding: 0.2rem;
+    /* transform: rotate(330deg); */
+    border-radius: 15px 0px 0px 15px;
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: right;
+    padding-right: 1rem;
+    width: 35%;
+    margin: auto;
+    margin-top: -2.8rem;
+    float: right;
 }
