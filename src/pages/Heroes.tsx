@@ -113,7 +113,6 @@ export function Heroes() {
           transition: 'opacity 0.6s ease-out',
 
         }}
-        onClick={() => toggleModal()}
         >
 
           {filteredHeroes && filteredHeroes.map(hero => 
