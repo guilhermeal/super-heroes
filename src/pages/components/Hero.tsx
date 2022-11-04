@@ -1,45 +1,23 @@
 import './styles/hero.css';
 
 interface HeroProps {
-    hero: any,
-	onClick: (id:number) => void,
-}
-
-function getAligmentColor(alignment: string) {
-    switch(alignment) {
-        default: {
-            return {cor1:'white', cor2:'#919191'}; 
-        }
-        case 'good': {
-            return {cor1:'green', cor2:'#ccffcc'};
-        }
-        case 'neutral': {
-            return {cor1:'blue', cor2:'#cce6ff'};
-        }
-        case 'bad': {
-            return {cor1:'red', cor2:'#ffb3b3'};
-        }
+    hero: any;
+	onClick?: (id:number) => void;
+    genderColor: {
+        genero?: string;
+        cor3?: string;
+        cor4?: string;
+    },
+    aligmentColor: {
+        cor1?: string;
+        cor2?: string;
     }
 }
 
-function getGenderColor(gender: string) {
-    switch(gender) {
-        default: {
-            return {genero: '', cor3:'black', cor4:'#919191'}; 
-        }
-        case 'Female': {
-            return {genero: 'FEMININO', cor3:'#CC0DCF', cor4:'#ccffcc'};
-        }
-        case 'Male': {
-            return {genero: 'MASCULINO', cor3:'#334BFF', cor4:'#cce6ff'};
-        }
-    }
-}
+export function Hero({hero, onClick, aligmentColor, genderColor}: HeroProps) {
 
-export function Hero({hero, onClick}: HeroProps) {
-
-    const {cor1, cor2} = getAligmentColor(hero.biography.alignment);
-    const {genero, cor3, cor4} = getGenderColor(hero.appearance.gender);
+    const {cor1, cor2} = aligmentColor;
+    const {genero, cor3, cor4} = genderColor;
 
     return <div className="hero" style={{
         background: `linear-gradient(10deg, ${cor2}, ${cor1})`,
@@ -60,7 +38,7 @@ export function Hero({hero, onClick}: HeroProps) {
 			</div>
         </div>
 		
-		{genero.length>0 && (
+		{genero && genero.length>0 && (
 			<div className='cardHeroCoverGender' style={{
 				backgroundColor: `${cor3}`,
 			}}>

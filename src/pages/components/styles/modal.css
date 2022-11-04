@@ -11,13 +11,35 @@
     box-shadow: 5px 5px 5px rgba(0; 0; 0; 0.2);
     left: 13%; 
     top: 8%;
+    flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
     .modal {
-        width: 40%;
-        height: 70%;
-        left: 29%; 
-        top: 14%;
+        width: 25%;
+        height: 90%;
+        left: 35%; 
+        top: 2%;
     }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .modal {
+        width: 25%;
+        height: 90%;
+        left: 38%; 
+        top: 2%;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+}
+
+.modal-body {
+    padding: 10px 0px;
 }

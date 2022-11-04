@@ -30,6 +30,37 @@ export function Heroes() {
     fetchHeroes();
   }, []);
 
+  function getAligmentColor(alignment: string) {
+    switch(alignment) {
+        default: {
+            return {cor1:'white', cor2:'#919191'}; 
+        }
+        case 'good': {
+            return {cor1:'green', cor2:'#ccffcc'};
+        }
+        case 'neutral': {
+            return {cor1:'blue', cor2:'#cce6ff'};
+        }
+        case 'bad': {
+            return {cor1:'red', cor2:'#ffb3b3'};
+        }
+    }
+  }
+
+  const getGenderColor = (gender: string) => {
+    switch(gender) {
+        default: {
+            return {genero: '', cor3:'black', cor4:'#919191'}; 
+        }
+        case 'Female': {
+            return {genero: 'FEMININO', cor3:'#CC0DCF', cor4:'#ccffcc'};
+        }
+        case 'Male': {
+            return {genero: 'MASCULINO', cor3:'#334BFF', cor4:'#cce6ff'};
+        }
+    }
+  }
+
   const handleClick = (id:number) => {
     const filteredHero = heroes.filter(h => h.id == id).shift();
     setHero(filteredHero);
@@ -76,15 +107,21 @@ export function Heroes() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(18rem, 1fr))',
           gap: '2rem',
           padding: '1rem',
-          opacity: `${showModal ? '20%' : '100%'}`,
+          opacity: `${showModal ? '5%' : '100%'}`,
           zIndex: '10',
-        }}>
+          transition: 'opacity 0.6s ease-out',
+
+        }}
+        onClick={() => toggleModal()}
+        >
 
           {heroes && heroes.map(hero => 
             <Hero 
               key={hero.id} 
               hero={hero} 
               onClick={(id) => handleClick(id)}
+              genderColor={getGenderColor(hero.appearance.gender)}
+              aligmentColor={getAligmentColor(hero.biography.alignment)}
             />
           )}
         </div>	
@@ -103,6 +140,8 @@ export function Heroes() {
             isOpen={showModal}
             onClose={()=>toggleModal()}
             hero={hero}
+            genderColor={getGenderColor(hero.appearance.gender)}
+            aligmentColor={getAligmentColor(hero.biography.alignment)}
           />
         </div>
       )}

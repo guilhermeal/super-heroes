@@ -1,12 +1,26 @@
+import { Hero } from './Hero';
 import './styles/modal.css';
 
 interface ModalProps {
-    hero: any,
+    hero: any;
     isOpen: boolean;
     onClose: () => void;
+    genderColor: {
+        genero?: string;
+        cor3?: string;
+        cor4?: string;
+    },
+    aligmentColor: {
+        cor1?: string;
+        cor2?: string;
+    }
 }
 
-export function Modal ({isOpen, hero, onClose}: ModalProps) {
+export function Modal ({isOpen, hero, onClose, aligmentColor, genderColor}: ModalProps) {
+
+    const {cor1, cor2} = aligmentColor;
+    const {genero, cor3, cor4} = genderColor;
+
     return (
         <div
          className='modal'
@@ -14,13 +28,19 @@ export function Modal ({isOpen, hero, onClose}: ModalProps) {
             display: `${isOpen ? 'flex' : 'none'}`,
          }}
         >
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row-reverse',
-                justifyContent: 'space-between',
-                width: '100%',
-                borderBottom: '1px solid #CCC',
-            }}>
+            <div 
+             className='modal-header'
+            >
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column'
+                }}>
+                    <h2>{hero.name}</h2>
+                    <span style={{
+                        marginTop: '-1rem',
+                        paddingBottom: '1rem',
+                    }}>{hero.biography.fullName}</span>
+                </div>
                 <button 
                     onClick={()=>onClose()}
                     style={{
@@ -35,17 +55,17 @@ export function Modal ({isOpen, hero, onClose}: ModalProps) {
                     }}
                     title='Fechar janela'
                 >X</button>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column'
-                }}>
-                    <h2>{hero.name}</h2>
-                    <span style={{
-                        marginTop: '-1rem',
-                        paddingBottom: '1rem',
-                    }}>{hero.biography.fullName}</span>
-                </div>
+            </div>
 
+            <div 
+             className='modal-body'
+            >
+                <Hero 
+                    key={hero.id} 
+                    hero={hero} 
+                    genderColor={genderColor}
+                    aligmentColor={aligmentColor}
+                />
             </div>
         </div>
     )
