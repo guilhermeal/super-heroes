@@ -55,7 +55,7 @@ export function Heroes() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '100%',
         color: 'red',
       }}>
         <h1>NENHUM HERÓI ECONTRADO!</h1>
@@ -64,35 +64,48 @@ export function Heroes() {
   }
 	
 	return (
-    <div style={{
-      display: 'grid',
-    }}>
+    <>
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(18rem, 1fr))',
-        gap: '2rem',
-        padding: '1rem',
-        opacity: `${showModal ? '20%' : '100%'}`,
-        zIndex: '10',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
+        <div style={{
+          width: '95%',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(18rem, 1fr))',
+          gap: '2rem',
+          padding: '1rem',
+          opacity: `${showModal ? '20%' : '100%'}`,
+          zIndex: '10',
+        }}>
 
-        {heroes && heroes.map(hero => 
-          <Hero 
-            key={hero.id} 
-            hero={hero} 
-            onClick={(id) => handleClick(id)}
-          />
-        )}
-      </div>	
+          {heroes && heroes.map(hero => 
+            <Hero 
+              key={hero.id} 
+              hero={hero} 
+              onClick={(id) => handleClick(id)}
+            />
+          )}
+        </div>	
 
+      </div>
       {showModal && (
-        <Modal 
-          isOpen={showModal}
-          onClose={()=>toggleModal()}
-          hero={hero}
-        />
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+          }}
+        >
+          <Modal 
+            isOpen={showModal}
+            onClose={()=>toggleModal()}
+            hero={hero}
+          />
+        </div>
       )}
-
-    </div>
+    </>
 	)
 }

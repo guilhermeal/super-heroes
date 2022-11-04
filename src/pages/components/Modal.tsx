@@ -1,3 +1,5 @@
+import './styles/modal.css';
+
 interface ModalProps {
     hero: any,
     isOpen: boolean;
@@ -6,21 +8,12 @@ interface ModalProps {
 
 export function Modal ({isOpen, hero, onClose}: ModalProps) {
     return (
-        <div style={{
-            width: '50vw',
-            height: '50vh',
-            backgroundColor: '#FFF',
-            display: `${isOpen ? 'visible' : 'none'}`,
-            position: 'fixed',
-            overflow: 'auto',
-            zIndex: '100',
-            margin: 'auto',
-            marginTop: '25vh',
-            marginLeft: '25vw',
-            borderRadius: '1rem',
-            padding: '1rem',
-            boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.2)',
-        }}>
+        <div
+         className='modal'
+         style={{
+            display: `${isOpen ? 'flex' : 'none'}`,
+         }}
+        >
             <div style={{
                 display: 'flex',
                 flexDirection: 'row-reverse',
