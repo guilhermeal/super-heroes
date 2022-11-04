@@ -43,9 +43,9 @@ Describe your project
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: List all Heros from API;\
+:heavy_check_mark: Search bar to find your favorite hero;\
+:heavy_check_mark: Select and open Modal for more informations;
 
 ## :rocket: Technologies ##
 
