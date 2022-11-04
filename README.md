@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="https://github.com/guilhermeal/super-heroes/blob/996e2008b7b1b7cf8aac7674385c7a8aa9dcfe42/src/assets/clip.gif" alt="Superhero" />
+  <img src="https://github.com/guilhermeal/super-heroes/blob/8473395835caeb3d0807127b3d91ba5ef2ab15b8/src/assets/clip.gif" alt="Superhero" />
 
   &#xa0;
 
