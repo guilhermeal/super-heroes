@@ -17,13 +17,16 @@
   <img alt="Github stars" src="https://img.shields.io/github/stars/guilhermeal/super-heroes?color=56BEB8" />
 </p>
 
-<!-- Status -->
+<br>
 
-<!-- <h4 align="center"> 
-	🚧  Superhero 🚀 Under construction...  🚧
+<h4 align="center"> 
+
+🚀🟢 [Check this project online at Vercel - CLICK HERE! ](https://super-heroes-djoo.vercel.app/) 🟢🚀
+
 </h4> 
+<br>
 
-<hr> -->
+<hr>
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
@@ -54,6 +57,7 @@ The following tools were used in this project:
 - [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [superhero-api](https://akabab.github.io/superhero-api/)
+- [Vercel](https://vercel.com/)
 
 ## :white_check_mark: Requirements ##
 
@@ -82,7 +86,7 @@ $ yarn dev
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/guilhermeal" target="_blank">Guilherme Almeida</a>
+Made with :heart: by <a href="https://github.com/guilhermeal" target="_blank">Guilherme Almeida</a> 🇧🇷
 
 &#xa0;
 
