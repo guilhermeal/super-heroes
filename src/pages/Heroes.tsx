@@ -11,7 +11,7 @@ export function Heroes() {
 	const [heroes, setHeroes] = useState<any[]>([]);
 	const [filteredHeroes, setFilteredHeroes] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
-	const [hero, setHero] = useState<any[]>([]);
+	const [hero, setHero] = useState<any>([]);
   const [showModal, setShowModal] = useState(false);
   const [dataSearch, setDataSearch] = useState<string>();
   const toggleModal = () => setShowModal(!showModal);
@@ -39,7 +39,7 @@ export function Heroes() {
     setFilteredHeroes(filteredHero);
   }, [dataSearch])
 
-  function getAligmentColor(alignment: string) {
+  function getAlignmentColor(alignment?: string) {
     switch(alignment) {
         default: {
             return {cor1:'white', cor2:'#919191'}; 
@@ -56,7 +56,7 @@ export function Heroes() {
     }
   }
 
-  const getGenderColor = (gender: string) => {
+  const getGenderColor = (gender?: string) => {
     switch(gender) {
         default: {
             return {genero: '', cor3:'black', cor4:'#919191'}; 
@@ -122,7 +122,7 @@ export function Heroes() {
               hero={hero} 
               onClick={(id) => handleClick(id)}
               genderColor={getGenderColor(hero.appearance.gender)}
-              aligmentColor={getAligmentColor(hero.biography.alignment)}
+              aligmentColor={getAlignmentColor(hero.biography.alignment)}
             />
           )}
         </div>	
@@ -142,7 +142,7 @@ export function Heroes() {
             onClose={()=>toggleModal()}
             hero={hero}
             genderColor={getGenderColor(hero.appearance.gender)}
-            aligmentColor={getAligmentColor(hero.biography.alignment)}
+            aligmentColor={getAlignmentColor(hero.biography.alignment)}
           />
         </div>
       )}

@@ -62,6 +62,7 @@ export function Modal ({isOpen, hero, onClose, aligmentColor, genderColor}: Moda
                     hero={hero} 
                     genderColor={genderColor}
                     aligmentColor={aligmentColor}
+                    onClick={onClose}
                 />
             </div>
         </div>

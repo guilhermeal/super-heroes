@@ -2,7 +2,7 @@ import './styles/hero.css';
 
 interface HeroProps {
     hero: any;
-	onClick?: (id:number) => void;
+	onClick: (id:number) => void | undefined;
     genderColor: {
         genero?: string;
         cor3?: string;
