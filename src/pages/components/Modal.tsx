@@ -18,9 +18,6 @@ interface ModalProps {
 
 export function Modal ({isOpen, hero, onClose, aligmentColor, genderColor}: ModalProps) {
 
-    const {cor1, cor2} = aligmentColor;
-    const {genero, cor3, cor4} = genderColor;
-
     return (
         <div
          className='modal'

@@ -16,9 +16,9 @@
 
 @media screen and (min-width: 768px) {
     .modal {
-        width: 25%;
+        width: 39%;
         height: 90%;
-        left: 35%; 
+        left: 30%; 
         top: 2%;
     }
 }
@@ -26,10 +26,11 @@
 
 @media screen and (min-width: 1024px) {
     .modal {
-        width: 25%;
+        width: 40%;
+        max-width: 50vh;
         height: 90%;
-        left: 38%; 
-        top: 2%;
+        left: 35%; 
+        top: 3%;
     }
 }
 

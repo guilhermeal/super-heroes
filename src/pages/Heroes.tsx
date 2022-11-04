@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { Hero } from "./components/Hero";
 import LoadingSvg from "./../assets/loading.svg";
 import { Modal } from "./components/Modal";
+import { SearchBar } from "./components/SearchBar";
 
 const baseUrlApi2 = `https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api`;
 
 export function Heroes() {
 
 	const [heroes, setHeroes] = useState<any[]>([]);
+	const [filteredHeroes, setFilteredHeroes] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [hero, setHero] = useState<any[]>([]);
-	const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [dataSearch, setDataSearch] = useState<string>();
   const toggleModal = () => setShowModal(!showModal);
 
 	useEffect(() => {
@@ -19,7 +22,8 @@ export function Heroes() {
         fetch(`${baseUrlApi2}/all.json`)
 					.then((res) => res.json())
 					.then((json) => {
-						setHeroes(json)
+						setHeroes(json);
+            setFilteredHeroes(json);
 					}).finally(()=>{
             setLoading(false);
           })
@@ -29,6 +33,11 @@ export function Heroes() {
     };
     fetchHeroes();
   }, []);
+
+  useEffect(() => {
+    const filteredHero = heroes.filter(x => x.name.toLowerCase().includes(dataSearch?.toLowerCase()))
+    setFilteredHeroes(filteredHero);
+  }, [dataSearch])
 
   function getAligmentColor(alignment: string) {
     switch(alignment) {
@@ -79,20 +88,6 @@ export function Heroes() {
       </div>
     )
   }
-
-  if(heroes.length<=0) {
-    return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
-        color: 'red',
-      }}>
-        <h1>NENHUM HERÓI ECONTRADO!</h1>
-      </div>
-    )
-  }
 	
 	return (
     <>
@@ -100,7 +95,13 @@ export function Heroes() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
       }}>
+
+        <SearchBar 
+          dataSearch={setDataSearch}
+        />
+
         <div style={{
           width: '95%',
           display: 'grid',
@@ -115,7 +116,7 @@ export function Heroes() {
         onClick={() => toggleModal()}
         >
 
-          {heroes && heroes.map(hero => 
+          {filteredHeroes && filteredHeroes.map(hero => 
             <Hero 
               key={hero.id} 
               hero={hero} 
@@ -145,6 +146,21 @@ export function Heroes() {
           />
         </div>
       )}
+
+      {filteredHeroes.length<=0 && (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            color: 'black',
+            textAlign: 'center'
+          }}>
+            <h1>NENHUM HERÓI ECONTRADO!</h1>
+          </div>
+        )
+      }
+
     </>
 	)
 }
